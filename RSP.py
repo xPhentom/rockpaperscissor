@@ -1,5 +1,6 @@
 #!/bin/python
 from random import randint
+import sys
 
 def winner():
 	print "You've won"
@@ -13,9 +14,19 @@ def loser():
 def enemy(choice):
 	print "Your enemy chose " + choice
 
+def exit():
+	print "Write rock, paper or scissor"
+	sys.exit()
+
 def game():
 	rN = randint(1,9)
 	answer = raw_input("\n\n>>>")
+	
+	if not answer :
+		exit()		
+
+	if answer is not 'rock' and answer is not 'paper' and answer is not 'scissor':
+		exit()
 
 	if rN > 0 and rN <= 3:
 		enemy("rock")
